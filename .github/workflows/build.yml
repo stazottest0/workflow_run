@@ -12,8 +12,5 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-      with:
-        ref: ${{ github.event.pull_request.head.ref }}
-
     - name: Run tests
       run: echo "Build"
