@@ -1,0 +1,21 @@
+name: Workflow Run Install
+
+on:
+  workflow_run:
+    workflows: ["Pull Request Test"]
+    types:
+    - completed
+
+jobs:
+  install:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      with:
+        ref: ${{ github.event.workflow_run.head_branch  }}
+
+    - name: Install dependencies
+      run: echo ${{ github.token }}
