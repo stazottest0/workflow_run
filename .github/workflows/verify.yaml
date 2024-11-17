@@ -8,7 +8,7 @@ on:
     
 permissions:
   pull-requests: write # This action modifies PRs
-  # contents: write # This action adds commits to PRs
+  contents: write # This action adds commits to PRs
 
 jobs:
   install:
